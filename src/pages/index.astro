@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const features = [
+  {
+    number: '01',
+    icon: 'layers' as const,
+    title: 'The product',
+    description:
+      'What it does, how it works, and the problem it sets out to solve.',
+    pending: 'Product overview to be shared',
+  },
+  {
+    number: '02',
+    icon: 'people' as const,
+    title: 'The people it’s for',
+    description: 'Who it’s designed for and where it could fit into their day.',
+    pending: 'Audience and use cases to be shared',
+  },
+  {
+    number: '03',
+    icon: 'path' as const,
+    title: 'The way to get started',
+    description:
+      'Availability, pricing, and a clear next step when the details are ready.',
+    pending: 'Launch information to be shared',
+  },
+];
+const faqs = [
+  {
+    question: 'What is being launched?',
+    answer:
+      'This page is an early launch preview. The product name, description, and confirmed features have not been provided yet. They’ll be added here once approved.',
+  },
+  {
+    question: 'When will it be available?',
+    answer:
+      'A launch date has not been confirmed for this page. There is no release date or availability promise to share yet.',
+  },
+  {
+    question: 'Can I sign up or buy it now?',
+    answer:
+      'Not on this preview. There is no signup, checkout, or waitlist, and this page does not collect email addresses. A next step will be added once the launch destination is confirmed.',
+  },
+  {
+    question: 'Where are the customer stories?',
+    answer:
+      'No customer quotes, logos, or results have been supplied for publication. The customer stories section is reserved for verified, permissioned material, not sample endorsements.',
+  },
+];
+---
+
+<Layout>
+  <div class="page-shell">
+    <header class="site-header flex items-center justify-between gap-4">
+      <a
+        href="#"
+        class="wordmark flex items-center gap-2.5"
+        aria-label="Launch preview, back to top"
+      >
+        <span class="brand-symbol">
+          <Icon name="spark" />
+        </span>
+        <span>
+          Launch preview<span class="wordmark-dot">.</span>
+        </span>
+      </a>
+      <nav
+        aria-label="Main navigation"
+        class="flex items-center gap-6 sm:gap-9"
+      >
+        <a class="nav-link" href="#overview">
+          Overview
+        </a>
+        <a class="nav-link" href="#questions">
+          Questions <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section
+        class="hero grid items-center gap-10 lg:grid-cols-2 lg:gap-14"
+        aria-labelledby="hero-title"
+      >
+        <div class="hero-copy">
+          <p class="eyebrow flex items-center gap-2.5">
+            <span class="status-dot"></span> An early look
+          </p>
+          <h1 id="hero-title">
+            A first look.
+            <br />
+            <em>More to come.</em>
+          </h1>
+          <p class="hero-description">
+            Every launch has a story.
+            <br class="hidden sm:block" /> This one is still taking shape.
+          </p>
+          <p class="hero-detail">
+            The product name and launch details are yet to be shared. For now,
+            here’s a little space for what comes next.
+          </p>
+          <a
+            class="primary-cta inline-flex items-center justify-center gap-5"
+            href="#overview"
+            data-analytics="explore-launch"
+          >
+            Explore the launch <Icon name="arrow" />
+          </a>
+          <p class="cta-note">Just a preview. No signup needed.</p>
+        </div>
+
+        <div
+          class="launch-art"
+          role="img"
+          aria-label="An abstract orange sun rising above soft green arches, representing a new beginning. Decorative launch artwork, not a product image."
+        >
+          <div class="art-topline">
+            <span>THE NEXT CHAPTER</span>
+            <Icon name="spark" />
+          </div>
+          <div class="orbital orbital-one"></div>
+          <div class="orbital orbital-two"></div>
+          <div class="sun"></div>
+          <div class="arch arch-back"></div>
+          <div class="arch arch-front"></div>
+          <div class="art-horizon"></div>
+          <div class="art-caption">
+            <span>A little anticipation.</span>
+            <em>A lot still to share.</em>
+          </div>
+          <div class="art-bottomline">
+            <span>ROOM FOR SOMETHING NEW</span>
+            <span>↗</span>
+          </div>
+          <span class="art-tag">
+            <span></span> Details to follow
+          </span>
+        </div>
+      </section>
+
+      <section
+        class="proof-section grid gap-6 md:grid-cols-[1fr_1.45fr] md:gap-16"
+        aria-labelledby="proof-title"
+      >
+        <div>
+          <p class="eyebrow">Customer stories</p>
+          <h2 id="proof-title">Proof, not promises.</h2>
+        </div>
+        <div class="proof-note flex items-start gap-4">
+          <span class="quote-mark" aria-hidden="true">
+            “
+          </span>
+          <div>
+            <p>Real experiences belong here.</p>
+            <p class="secondary-copy">
+              This space is reserved for approved customer stories. No borrowed
+              logos. No made-up endorsements.
+            </p>
+            <span class="text-label">
+              Awaiting verified stories <span aria-hidden="true">↗</span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="overview"
+        class="overview-section"
+        aria-labelledby="overview-title"
+      >
+        <div class="section-intro flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p class="eyebrow">The overview</p>
+            <h2 id="overview-title">
+              The details that <em>matter.</em>
+            </h2>
+          </div>
+          <p class="section-description">
+            A place for the essentials.
+            <br />
+            Confirmed product details will fill it in.
+          </p>
+        </div>
+        <div class="feature-grid grid gap-4 md:grid-cols-3">
+          {features.map((feature) => (
+            <article class="feature-card">
+              <div class="flex items-center justify-between">
+                <span class="feature-icon">
+                  <Icon name={feature.icon} />
+                </span>
+                <span class="feature-number">{feature.number}</span>
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+              <div class="feature-status">
+                <span aria-hidden="true"></span>
+                {feature.pending}
+              </div>
+            </article>
+          ))}
+        </div>
+        <p class="editorial-note">
+          <Icon name="spark" /> A preview of the story to come, not a list of
+          product claims.
+        </p>
+      </section>
+
+      <section
+        id="questions"
+        class="faq-section grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20"
+        aria-labelledby="faq-title"
+      >
+        <div>
+          <p class="eyebrow">A little clarity</p>
+          <h2 id="faq-title">
+            Good questions.
+            <br />
+            <em>Honest answers.</em>
+          </h2>
+          <p class="section-description">
+            Here’s what we can share at this stage.
+          </p>
+        </div>
+        <div class="faq-list">
+          {faqs.map((faq, index) => (
+            <details class="faq-item" name="launch-faq" open={index === 0}>
+              <summary>
+                {faq.question}
+                <span class="faq-toggle">
+                  <Icon name="plus" />
+                </span>
+              </summary>
+              <p>{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <aside
+        class="closing-note flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center"
+        aria-label="Launch status"
+      >
+        <div class="flex items-center gap-4">
+          <span class="closing-icon">
+            <Icon name="spark" />
+          </span>
+          <div>
+            <p>The next chapter is still unwritten.</p>
+            <span>Product name, launch date, and next steps to follow.</span>
+          </div>
+        </div>
+        <span class="draft-badge">Preview edition</span>
+      </aside>
+    </main>
+
+    <footer class="site-footer flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+      <p>
+        Launch preview<span class="wordmark-dot">.</span>{' '}
+        <span class="footer-divider">/</span> A beginning, not an announcement.
+      </p>
+      <a class="nav-link inline-flex items-center gap-2" href="#">
+        Back to top <span aria-hidden="true">↑</span>
+      </a>
+    </footer>
+  </div>
+</Layout>
